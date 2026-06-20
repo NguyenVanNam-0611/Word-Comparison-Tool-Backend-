@@ -1,0 +1,6 @@
+*.py linguist-language=Python
+*.cs linguist-vendored
+*.csproj linguist-vendored
+*.sln linguist-vendored
+*.json linguist-vendored
+*.md linguist-documentation
