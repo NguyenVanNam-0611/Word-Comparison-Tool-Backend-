@@ -125,9 +125,14 @@ uvicorn src.main:app --reload
 
 ## Lưu ý
 
-Dự án có sử dụng Microsoft Word COM Automation, vì vậy cần chạy trên môi trường Windows có cài Microsoft Word.
+Dự án có sử dụng Microsoft Word COM Automation, vì vậy backend cần chạy trên môi trường Windows có cài Microsoft Word. Một số chức năng như chuyển đổi `.doc` sang `.docx` và lấy thông tin trang thật của tài liệu phụ thuộc vào Word COM.
 
-Một số thư mục dữ liệu runtime như upload file, kết quả export, database job hoặc log không nên push lên GitHub. Repo chỉ nên lưu source code và các file cấu hình cần thiết.
+Trong quá trình xử lý file Word thực tế, một số trường hợp phức tạp có thể ảnh hưởng đến kết quả so sánh, đặc biệt là với bảng. Ví dụ, nếu nhiều bảng liên tiếp có cùng heading hoặc phần tiêu đề bảng giống nhau, hệ thống có thể nhận diện nhầm rằng các bảng đó thuộc cùng một nhóm và thực hiện merge bảng không đúng. Khi đó kết quả so sánh bảng có thể không chính xác hoặc không phát hiện được đầy đủ thay đổi.
+
+Ngoài ra, với các bảng có cấu trúc quá phức tạp như nhiều merge cell, nested table nhiều cấp, hoặc layout bị thay đổi mạnh giữa hai phiên bản tài liệu, việc căn chỉnh hàng và ô có thể chưa hoàn toàn chính xác trong mọi trường hợp.
+
+Một số thư mục dữ liệu runtime như file upload, file export, database job, log và file tạm không nên push lên repository. Repo chỉ nên lưu source code, file cấu hình cần thiết và tài liệu mô tả dự án.
+
 
 ## Mục tiêu của dự án
 
